@@ -81,8 +81,13 @@ Vagrant.configure(2) do |config|
 
      VAGRANT_RESOURCES="/vagrant/vagrant"
 
-     sudo cp $VAGRANT_RESOURCES/nginx-config.conf /etc/nginx/sites-available/devel
-     ln -sf /etc/nginx/sites-available/devel /etc/nginx/sites-enabled/devel
+     sudo rm -Rf /etc/nginx/sites-available
+     sudo rm -Rf /etc/nginx/sites-enabled
+
+     sudo ln -sf $VAGRANT_RESOURCES/sites-available /etc/nginx/sites-available
+     sudo ln -sf $VAGRANT_RESOURCES/sites-enabled /etc/nginx/sites-enabled
+     sudo ln -sf $VAGRANT_RESOURCES/nginx-global /etc/nginx/conf.d/global
+
      sudo service nginx restart
 
      sudo cp $VAGRANT_RESOURCES/memcached.ini $VAGRANT_RESOURCES/xdebug.ini /etc/php/7.0/mods-available
