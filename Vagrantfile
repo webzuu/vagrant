@@ -88,6 +88,8 @@ Vagrant.configure(2) do |config|
      sudo ln -sf $VAGRANT_RESOURCES/sites-enabled /etc/nginx/sites-enabled
      sudo ln -sf $VAGRANT_RESOURCES/nginx-global /etc/nginx/conf.d/global
 
+     sudo ln -sf /etc/nginx/sites-available/devel /etc/nginx/sites-enabled/devel
+
      sudo service nginx restart
 
      sudo cp $VAGRANT_RESOURCES/memcached.ini $VAGRANT_RESOURCES/xdebug.ini /etc/php/7.0/mods-available

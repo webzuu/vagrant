@@ -1,0 +1,5 @@
+server {
+  include /etc/nginx/conf.d/global/*.conf;
+  server_name ~^(?<project>.+)\.dev\.app$;
+  root /vagrant/$project/public;
+}
